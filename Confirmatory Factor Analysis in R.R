@@ -7,7 +7,7 @@ library(lavaan)
 
 # The data I'm using is called "DemoData", feel free to use another name for your data.
 # Just remember to change the name of the data on the syntax
-# Insert the path of the dataframe inside paranthesis
+# Insert the path of the dataframe inside parenthesis
 
 DemoData <- read_sav("Insert_path")
 View(DemoData)
