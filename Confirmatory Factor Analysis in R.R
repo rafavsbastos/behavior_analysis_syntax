@@ -22,7 +22,8 @@ model1 <- 'f1 =~ item1 + item2 + item3
           f3 =~ f1 + f2
           '
 #For Fit Confirmatory Factor Analysis Models we use the function cfa
-  #I'm using the Robust Maximum Likelihood estimator
+  #I'm using the Robust Maximum Likelihood estimator for continuous data
+  #If you have categorical data, use "estimator = wlsmv"
   #for more arguments, use help(package = "lavaan") and search for "cfa"
 cfa1 <- cfa(model1, data=DemoData, estimator = 'mlr')
 summary(cfa1, fit.measures=TRUE, standardized=TRUE)
