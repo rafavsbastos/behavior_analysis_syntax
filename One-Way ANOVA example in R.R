@@ -1,5 +1,9 @@
+#First step: install packages
+install.packages("apaTables")
+
 #Selecting the packages
 library(dplyr)
+library(apaTables)
 
 # The data I'm using is called "my_data", feel free to use another name for your data.
 # Just remember to change the name of the data on the syntax
@@ -45,4 +49,8 @@ summary(res.aov)
   #I'm adjusting the p value with bonferroni method
 
 pairwise.t.test(my_data$"variable2", my_data$"group_variable", p.adjust.method = "bonferroni")
+
+# Making an APA table
+  #Put the filename and the number of the table bellow
+apa.aov.table(res.aov, filename = "Table1_APA.doc", table.number = 1)
 
