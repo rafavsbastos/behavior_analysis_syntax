@@ -54,3 +54,7 @@ pairwise.t.test(my_data$"variable2", my_data$"group_variable", p.adjust.method =
   #Put the filename and the number of the table bellow
 apa.aov.table(res.aov, filename = "Table1_APA.doc", table.number = 1)
 
+apa.d.table(iv = group_variable, dv = variable2, data = my_data, 
+            filename = "Table6_APA.doc", 
+            table.number = 6)
+
