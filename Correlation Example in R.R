@@ -12,8 +12,10 @@ library(haven)
 # The data I'm using is called "DemoData", feel free to use another name for your data.
 # Just remember to change the name of the data on the syntax
 # Insert the path of the dataframe inside paranthesis
+# Change the data type: if it's excel, put "my_data <- read_excel("Path")
 DemoData <- read_sav("Insert_path")
 View(DemoData)
+
 
 #Selecting variables to be correlated;
   #In paranthesis, list the names as follows
