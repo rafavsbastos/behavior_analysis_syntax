@@ -4,7 +4,7 @@ library(dplyr)
 # The data I'm using is called "my_data", feel free to use another name for your data.
 # Just remember to change the name of the data on the syntax
 # Insert the path of the dataframe inside paranthesis
-# Change the data type: if it's excell, put "my_data <- read_excel("Path")
+# Change the data type: if it's excel, put "my_data <- read_excel("Path")
 
 my_data <- read_sav("Insert_path")
 View(my_data)
