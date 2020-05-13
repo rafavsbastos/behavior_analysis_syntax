@@ -51,7 +51,7 @@ paran(DemoData, iterations=500, centile=0, quietly=FALSE,
 
   #set the number of factors in "nfactors" and the number of observation in "n.obs"
   #rotation methods and extraction methods vary, use help(package = "psych") and go to "fa"
-fit <- fa(DemoData, nfactors = 1, n.obs = 120, rotate = "oblimin", residuals = TRUE, fm = "minres")
+fit <- fa(DemoData, nfactors = 1, n.obs = 120, rotate = "oblimin", residuals = TRUE, cor = "poly", fm = "minres")
 print(fit, sort = TRUE)
 
 fa.diagram(fit)
