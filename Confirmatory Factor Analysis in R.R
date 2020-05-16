@@ -28,7 +28,7 @@ model1 <- 'f1 =~ item1 + item2 + item3
   #I'm using the Robust Maximum Likelihood estimator for continuous data
   #If you have categorical data, use "estimator = wlsmv"
   #for more arguments, use help(package = "lavaan") and search for "cfa"
-cfa.fit <- cfa(model1, data=DemoData, estimator = 'mlr')
+cfa.fit <- cfa(model = model1, data = DemoData, estimator = 'mlr')
 summary(cfa.fit, fit.measures=TRUE, standardized=TRUE, rsquare = TRUE)
 
 # Here's a visual representation of what we're doing
@@ -38,7 +38,7 @@ semPaths(object = cfa.fit,
          whatLabels = "std",
          edge.label.cex = 1,
          what = "std",
-         edge.color = "blue")
+         edge.color = "navy")
 
 #Maybe you got a high variance in one or more variables
  #If that happens, check the variance of the real data
@@ -78,3 +78,13 @@ r3 <- DemoData[,c("item1", "item2", "item3", "item4", "item5", "item6" )]
 ci.reliability(data=r3, type='alpha', interval.type = "41", B=500)
 ci.reliability(data=r3, type='omega', interval.type = "41", B=500)
 
+#________________________________________________________________________________
+#If you wish to compare models, use the following syntax
+anova(model1, model2)
+
+# View the fit indices for the original model
+ #Remember, for AIC/CAIC and ECVI, lower is better
+fitmeasures(wais.fit, c("aic", "ecvi"))
+
+# View the fit indices for the updated model
+fitmeasures(wais.fit2, c("aic", "ecvi"))
