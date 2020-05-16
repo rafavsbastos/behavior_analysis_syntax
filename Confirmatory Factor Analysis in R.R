@@ -40,6 +40,12 @@ semPaths(object = cfa.fit,
          what = "std",
          edge.color = "blue")
 
+#Maybe you got a high variance in one or more variables
+ #If that happens, check the variance of the real data
+  #If the variance of real data is close to the model variance, you're ok
+    #substitute the second argument with the name of the problematic item)
+#var(DemoData$name.of.the.problematic.item)
+
 #You can have the fit measures in the following function
 fitMeasures(cfa.fit)
 
