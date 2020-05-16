@@ -1,8 +1,10 @@
 #First step: install the packages
 install.packages("lavaan")
+install.packages("semPlot")
 
 #Selecting the packages
 library(lavaan)
+library(semPlot)
 #for information on the package use help(package = "lavaan")
 
 # The data I'm using is called "DemoData", feel free to use another name for your data.
@@ -26,11 +28,20 @@ model1 <- 'f1 =~ item1 + item2 + item3
   #I'm using the Robust Maximum Likelihood estimator for continuous data
   #If you have categorical data, use "estimator = wlsmv"
   #for more arguments, use help(package = "lavaan") and search for "cfa"
-cfa1 <- cfa(model1, data=DemoData, estimator = 'mlr')
-summary(cfa1, fit.measures=TRUE, standardized=TRUE, rsquare = TRUE)
+cfa.fit <- cfa(model1, data=DemoData, estimator = 'mlr')
+summary(cfa.fit, fit.measures=TRUE, standardized=TRUE, rsquare = TRUE)
+
+# Here's a visual representation of what we're doing
+semPaths(object = cfa.fit,
+         layout = "tree",
+         rotation = 1,
+         whatLabels = "std",
+         edge.label.cex = 1,
+         what = "std",
+         edge.color = "blue")
 
 #You can have the fit measures in the following function
-fitMeasures(cfa1)
+fitMeasures(cfa.fit)
 
 #Sometimes de modification indices are huge
  #for that use the following function if you want all the results to be shown
@@ -38,8 +49,7 @@ fitMeasures(cfa1)
 options(max.print=10000)
 
 #Modification indices goes as follows
-modindices(cfa1)
-
+modindices(cfa.fit)
 
 ###Calculating reliability with Alpha and Omega
   #Select the items you want to use to calculate the reliability by putting each name in paranthesis
