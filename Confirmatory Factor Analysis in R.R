@@ -27,7 +27,7 @@ model1 <- 'f1 =~ item1 + item2 + item3
   #If you have categorical data, use "estimator = wlsmv"
   #for more arguments, use help(package = "lavaan") and search for "cfa"
 cfa1 <- cfa(model1, data=DemoData, estimator = 'mlr')
-summary(cfa1, fit.measures=TRUE, standardized=TRUE)
+summary(cfa1, fit.measures=TRUE, standardized=TRUE, rsquare = TRUE)
 
 #You can have the fit measures in the following function
 fitMeasures(cfa1)
