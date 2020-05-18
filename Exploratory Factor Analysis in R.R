@@ -30,6 +30,12 @@ KMO(DemoData)
 #In the next line: n = number of cases in integer
 cortest.bartlett(DemoData, n=120,diag = TRUE)
 
+# Calculate split-half reliability
+splitHalf(DemoData)
+
+#The correlation matrix of the items
+lowerCor(DemoData)
+
 ### Parallel Analysis
   #fm = extraction method; I'm using maximum likelihood, but you can use another one
     #for other methods, please code help(package="psych") and search for fa.parallel
