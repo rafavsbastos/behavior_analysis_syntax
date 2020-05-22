@@ -19,35 +19,35 @@ library(haven)
 DemoData <- read_sav("Insert_path")
 View(DemoData)
 --------------------------------------------------------
-
+variables <- [,c("item1", "item2", "item3", "item4")]
 
 ### Exploratory Factor Analysis
     
 ###Testing the quality of the data with KMO and Bartlett
 
-KMO(DemoData)
+KMO(variables)
 
 #In the next line: n = number of cases in integer
-cortest.bartlett(DemoData, n=120,diag = TRUE)
+cortest.bartlett(variables, n=120,diag = TRUE)
 
 # Calculate split-half reliability
-splitHalf(DemoData)
+splitHalf(variables)
 
 #The correlation matrix of the items
-lowerCor(DemoData)
+lowerCor(variables)
 
 ### Parallel Analysis
   #fm = extraction method; I'm using maximum likelihood, but you can use another one
     #for other methods, please code help(package="psych") and search for fa.parallel
   #fa: if you want to use principal componentes use fa = "pc"; fa = "fa" use a principal axis factor analysis
 
-fa.parallel(DemoData, n.obs = NULL,fm="ml", fa="fa",
+fa.parallel(variables, n.obs = NULL,fm="ml", fa="fa",
             main = "Parallel Analysis Scree Plots", n.iter=500,error.bars=FALSE,
             SMC=FALSE,ylabel=NULL,show.legend=TRUE,sim=TRUE)
 
 
 #You can use paran packege too, it shows the value of simulated eigenvalues
-paran(DemoData, iterations=500, centile=0, quietly=FALSE, 
+paran(variables, iterations=500, centile=0, quietly=FALSE, 
       status=TRUE, all=TRUE, cfa=TRUE, graph=TRUE, 
       color=TRUE, col=c("black","red","blue"), 
       lty=c(1,2,3), lwd=1, legend=TRUE, file="", 
@@ -57,7 +57,7 @@ paran(DemoData, iterations=500, centile=0, quietly=FALSE,
 
   #set the number of factors in "nfactors" and the number of observation in "n.obs"
   #rotation methods and extraction methods vary, use help(package = "psych") and go to "fa"
-fit <- fa(DemoData, nfactors = 1, n.obs = 120, rotate = "oblimin", residuals = TRUE, cor = "poly", fm = "minres")
+fit <- fa(variables, nfactors = 1, n.obs = 120, rotate = "oblimin", residuals = TRUE, cor = "poly", fm = "minres")
 print(fit, sort = TRUE)
 
 fa.diagram(fit)
