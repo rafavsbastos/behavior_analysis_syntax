@@ -1,10 +1,12 @@
 #First step: install the packages
 install.packages("lavaan")
 install.packages("semPlot")
+install.packages("MBESS")
 
 #Selecting the packages
 library(lavaan)
 library(semPlot)
+library(MBESS)
 #for information on the package use help(package = "lavaan")
 
 # The data I'm using is called "DemoData", feel free to use another name for your data.
