@@ -82,7 +82,7 @@ ci.reliability(data=r3, type='omega', interval.type = "41", B=500)
 
 #________________________________________________________________________________
 #If you wish to compare models, use the following syntax
-anova(model1, model2)
+anova(cfa.fit, cfa.fit2)
 
 # View the fit indices for the original model
  #Remember, for AIC/CAIC, BIC and ECVI, lower is better
