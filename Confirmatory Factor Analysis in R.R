@@ -86,7 +86,7 @@ anova(model1, model2)
 
 # View the fit indices for the original model
  #Remember, for AIC/CAIC, BIC and ECVI, lower is better
-fitmeasures(wais.fit, c("aic", "bic", "ecvi"))
+fitmeasures(cfa.fit, c("aic", "bic", "ecvi"))
 
 # View the fit indices for the updated model
-fitmeasures(wais.fit2, c("aic", "bic", "ecvi"))
+fitmeasures(cfa.fit2, c("aic", "bic", "ecvi"))
