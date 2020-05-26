@@ -19,7 +19,7 @@ View(DemoData)
 ## My model: two factors explained by a high order factor
 ### If you don't want a high order, just remove the f3 variable
 
-model1 <- 'f1 =~ item1 + item2 + item3
+my.model <- 'f1 =~ item1 + item2 + item3
           f2 =~ item4 + item5 + item6
           f3 =~ f1 + f2
           '
@@ -28,7 +28,7 @@ model1 <- 'f1 =~ item1 + item2 + item3
 ## You have to put the name of your grouping variable inside paranthesis in "group"
 ###By adding the group.partial argument, you can test for partial measurement invariance by allowing a few parameters to remain free.
 
-measurementInvariance(model1, 
+measurementInvariance(model = my.model, 
                       data = DemoData, 
                       group = "grouping.variable")
 
