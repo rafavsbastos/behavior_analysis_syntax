@@ -82,6 +82,13 @@ ci.reliability(data=r3, type='omega', interval.type = "41", B=500)
 
 #________________________________________________________________________________
 #If you wish to compare models, use the following syntax
+##First, define the second model and it's cfa
+model2 <- 'f1 =~ item1 + item2 + item3
+          f2 =~ item4 + item5 + item6
+          '
+cfa.fit2 <- cfa(model = model2, data = DemoData, estimator = 'mlr')
+
+#Then, you'll make the chisq diff
 anova(cfa.fit, cfa.fit2)
 
 # View the fit indices for the original model
