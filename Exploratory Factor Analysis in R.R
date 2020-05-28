@@ -19,7 +19,7 @@ library(haven)
 DemoData <- read_sav("Insert_path")
 View(DemoData)
 --------------------------------------------------------
-variables <- [,c("item1", "item2", "item3", "item4")]
+variables <- DemoData[,c("item1", "item2", "item3", "item4")]
 
 ### Exploratory Factor Analysis
     
