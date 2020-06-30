@@ -19,10 +19,13 @@ View(DemoData)
   # You have to say the model you are using.
   #This model has two orthogonal factors: a) F1 that explains the items
   #b) RI(Random Intercepts) that explains the items with loadings set to 1 (Maydeu-Olivares & Coffman, 2006)
-  
-  model1 <- 'f1 =~ item1 + item2 + item3
-            RI =~ 1*item1 + 1*item2 + 1*item3
-            f1 ~~ 0*RI
+  #c) You must have, at least, 3 positive and 3 negative itens in your scale
+
+model <- 'f1 =~ NA*item1 + item2 + item3
+          f1 ~~ 1*f1
+          RandomIntercepts =~ 1*item1 + 1*item2 + 1*item3
+          f1 ~~ 0*RandomIntercepts
+          RandomIntercepts ~~ RandomIntercepts
           '
 
 #For Fit Confirmatory Factor Analysis Models we use the function cfa
