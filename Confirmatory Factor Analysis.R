@@ -57,7 +57,7 @@ fitMeasures(cfa.fit)
 options(max.print=10000)
 
 #Modification indices goes as follows
-modindices(cfa.fit)
+modindices(cfa.fit, sort. = TRUE)
 
 ###Calculating reliability with Alpha and Omega
   #Select the items you want to use to calculate the reliability by putting each name in paranthesis
