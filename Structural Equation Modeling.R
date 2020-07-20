@@ -1,12 +1,10 @@
 #First step: install the packages
 install.packages("lavaan")
 install.packages("semPlot")
-install.packages("devtools")
 
 #Selecting the packages
 library(lavaan)
 library(semPlot)
-library(devtools)
 
 #for information on the package use help(package = "lavaan")
 
@@ -35,4 +33,11 @@ View(DemoData)
 sem.fit <- sem(model1, data=DemoData)
 summary(sem.fit, standardized=TRUE)
 
-graph_sem(model = sem.fit)
+semPaths(object = sem.fit,
+         layout = "tree2",
+         rotation = 2,
+         whatLabels = "std",
+         edge.label.cex = 0.5,
+         what = "std",
+         edge.color = "black",
+         structural = TRUE)
