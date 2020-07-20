@@ -44,6 +44,9 @@ hist( x = residuals(basic.reg),
       main = "",
       breaks = 20)
 
+qqnorm(residuals(basic.reg))
+qqline(residuals(basic.reg))
+
 
 #Checking the linearity of the relationship
   #Put the name of the outcome variable in "outcome_variable"
