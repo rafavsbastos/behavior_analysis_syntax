@@ -25,11 +25,24 @@ my.model <- 'f1 =~ item1 + item2 + item3
           '
 
 # Measurement Invariance goes as follows
-## You have to put the name of your grouping variable inside paranthesis in "group"
+## You have to put the name of your grouping variable inside paranthesis in "grouping.variable"
 ###By adding the group.partial argument, you can test for partial measurement invariance by allowing a few parameters to remain free.
 
 measurementInvariance(model = my.model, 
                       data = DemoData, 
                       group = "grouping.variable",
                      estimator = "WLSMV")
+
+
+#For more information on Fit Indices, such as GFI, use the following sintax
+## You have to put the name of your grouping variable inside paranthesis in "grouping.variable"
+fit_configural <- cfa(model= my.model, DemoData, group = "grouping.variable")
+fitMeasures(fit_configural, c("rmsea","cfi","tli","rni","rfi","ifi","srmr","gfi"))
+
+metric.invariance <- cfa(my.model, data=DemoData, group = "grouping.variable", group.equal = "loadings")
+fitMeasures(metric.invariance, c("rmsea","cfi","tli","rni","rfi","ifi","srmr","gfi"))
+
+scalar.invariance <- cfa(my.model, data=DemoData, group = "grouping.variable", group.equal = c( "loadings", "intercepts"))
+fitMeasures(scalar.invariance, c("rmsea","cfi","tli","rni","rfi","ifi","srmr","gfi"))
+
 
