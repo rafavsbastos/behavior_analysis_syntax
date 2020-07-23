@@ -30,5 +30,6 @@ my.model <- 'f1 =~ item1 + item2 + item3
 
 measurementInvariance(model = my.model, 
                       data = DemoData, 
-                      group = "grouping.variable")
+                      group = "grouping.variable",
+                     estimator = "WLSMV")
 
