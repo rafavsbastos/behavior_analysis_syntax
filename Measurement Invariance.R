@@ -1,8 +1,10 @@
 #First step: install the package
 install.packages("semTools")
+install.packages("lavaan")
 
 #Then load the packege
 library(semTools)
+library(lavaan)
 
 #for information on the package use help(package = "lavaan")
 
