@@ -1,4 +1,8 @@
 library(psych)
+install.packages("magrittr")
+install.packages("dplyr")
+library(magrittr)
+library(dplyr)
 
 #Loading the data
 ##The sintax must be on the same folder as the data
@@ -16,6 +20,28 @@ describe(DemoData)
 variables <- DemoData[,c(1:5)]
 
 describe(variables)
+
+
+#To find out what your current working directory is, type
+getwd()
+
+#Alternatively, you can use the setwd() function to assign as working directory.
+setwd("C:/Users/Rafael/Documents")
+
+# Now, we have to put the factor scores into the data
+variables.mean <- DemoData[,c("q1","q2","q3")]
+
+meanScores <- DemoData %>%
+  rowwise() %>% # to calculate each row
+  mutate(
+    #creating variable named "variable"
+    variable = sum(q1,q2,q3)/length(variables.mean),
+  )    
+
+#Now, you'll write the new column "meanScores" in your dataframe
+##You can write a csv using write.csv, change the name of the new dataframe to DemoData.csv
+write_sav(meanScores,"DemoData.sav")
+
 
 #Standardization and zero centering scale
 epiz <- scale(DemoData)          #centers (around the mean) and scales by the sd  
