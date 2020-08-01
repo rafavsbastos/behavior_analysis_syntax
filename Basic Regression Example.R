@@ -2,11 +2,16 @@
 install.packages("apaTables")
 install.packages("lsr")
 install.packages("car")
+install.packages("ggplot2")
+install.packages("hrbrthemes")
 
 #Selecting the packages
 library(apaTables)
 library(lsr)
 library(car)
+library(ggplot2)
+library(hrbrthemes)
+
 
 # The data I'm using is called "my_data", feel free to use another name for your data.
 # Just remember to change the name of the data on the syntax
@@ -57,6 +62,14 @@ plot( x = fit1,
       ylab = "Observed Values" 
 )
 plot(x = basic.reg, which = 1)
+
+# Plot linear trend + confidence interval
+p3 <- ggplot(DemoData, aes(x=var_x, y=var_y)) +
+  geom_point() +
+  geom_smooth(method=lm , color="red", fill="#69b3a2", se=TRUE) +
+  theme_ipsum()
+
+print(p3)
 
 
 #Collinearity
