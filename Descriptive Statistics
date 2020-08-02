@@ -56,7 +56,7 @@ epic
 stem(DemoData$variableX)
 
 #Boxplot
-boxplot(variables)        #boxplot of the five epi scales
+boxplot(variables)
 
 #HISTOGRAM
 
