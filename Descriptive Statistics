@@ -1,8 +1,11 @@
-library(psych)
 install.packages("magrittr")
 install.packages("dplyr")
+install.packages("psych")
 library(magrittr)
 library(dplyr)
+library(psych)
+library(haven)
+
 
 #Loading the data
 ##The sintax must be on the same folder as the data
