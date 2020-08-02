@@ -1,9 +1,11 @@
 install.packages("magrittr")
 install.packages("dplyr")
 install.packages("psych")
+install.packages("ggplot2")
 library(magrittr)
 library(dplyr)
 library(psych)
+library(ggplot2)
 library(haven)
 
 
@@ -57,6 +59,13 @@ stem(DemoData$variableX)
 
 #Boxplot
 boxplot(variables)
+
+#If your grouping variable is a numeric value, change it to be a factor with the syntax bellow
+#Groups <- as.factor(Banco$min_mai)
+
+ggplot(DemoData, aes(x=Groups, y=continuous.variable)) + 
+  geom_boxplot()
+
 
 #HISTOGRAM
 
