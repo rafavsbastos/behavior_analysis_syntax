@@ -20,10 +20,10 @@ my_data <- read_sav("Insert_path")
 View(my_data)
 
 #Treating missing values
-plotdata = na.omit(my_data[,c("cont_variable","group_variable")])
+plotdata = na.omit(my_data[,c("continuous_variable","group_variable")])
 
 #Plotting a histogram
-ggplot(plotdata, aes(x = cont_variable)) +
+ggplot(plotdata, aes(x = continuous_variable)) +
   geom_histogram(aes(y = ..density..),col="black",binwidth = 0.2,alpha=0.7) + 
   geom_density(size=2) +
   theme_bw()+labs(x = "Numerical variable by Categorical Variable")+ facet_wrap(~ group_variable)+
@@ -35,19 +35,24 @@ ggplot(plotdata, aes(x = cont_variable)) +
 descrpt=with(my_data,describeBy(group_variable, cont_variable,mat=T,digits = 2))
 descrpt
 
+
+#F-test to test equality of variance
+var.test(continuous_variable ~ group_variable, my_data, 
+         alternative = "two.sided")
+
 #Here is the  two samplet t-test statistics
   #You can change de p value level, i'm using 0.95
-t.test(cont_variable ~ group_variable,data=my_data,var.equal=T,
+t.test(continuous_variable ~ group_variable,data=my_data,var.equal=T,
        alternative="two.sided",
        conf.level=0.95)
 
 #EFFECT SIZES
   #Cohen's d
-  cohen.d(cont_variable ~ group_variable, data=my_data, paired=FALSE, 
+  cohen.d(continuous_variable ~ group_variable, data=my_data, paired=FALSE, 
         conf.level=0.95,noncentral=FALSE)
 
   #Hedge's g
-  cohen.d(cont_variable ~ group_variable, data=my_data, paired=FALSE, 
+  cohen.d(continuous_variable ~ group_variable, data=my_data, paired=FALSE, 
         conf.level=0.95,noncentral=FALSE, hedges.correction=TRUE)
 
 
