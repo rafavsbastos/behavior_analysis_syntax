@@ -33,7 +33,7 @@ group_by(my_data, group_variable) %>%
 
 #Doing a boxplot; 
   #you can put in the horizontal too, just change FALSE to TRUE
-boxplot(my_data$"variable2"~my_data$"group_variable", 
+boxplot(my_data$variable2~my_data$group_variable, 
         main="Type the name of the title here", 
         col= rainbow(4), 
         horizontal = FALSE)
@@ -48,7 +48,7 @@ summary(res.aov)
   #put your data name replacing "my data"
   #I'm adjusting the p value with bonferroni method
 
-pairwise.t.test(my_data$"variable2", my_data$"group_variable", p.adjust.method = "bonferroni")
+pairwise.t.test(my_data$variable2, my_data$group_variable, p.adjust.method = "bonferroni")
 
 # Making an APA table
   #Put the filename and the number of the table bellow
