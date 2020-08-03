@@ -3,10 +3,10 @@ install.packages("SnowballC") # for text stemming
 install.packages("wordcloud") # word-cloud generator 
 install.packages("RColorBrewer") # color palettes
 # Load
-library("tm")
-library("SnowballC")
-library("wordcloud")
-library("RColorBrewer")
+library(tm)
+library(SnowballC)
+library(wordcloud)
+library(RColorBrewer)
 library(haven)
 
 #Call your data "text"
