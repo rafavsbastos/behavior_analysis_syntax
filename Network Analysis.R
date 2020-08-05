@@ -1,3 +1,16 @@
+install.packages("psych")
+install.packages("lavaan")
+install.packages("foreign")
+install.packages("semTools")
+install.packages("equaltestMI")
+install.packages("MplusAutomation")
+install.packages("ggplot2")
+install.packages("semPlot")
+install.packages("qgraph")
+install.packages("bootnet")
+install.packages("networktools")
+install.packages("NetworkComparisonTest")
+
 library(psych)
 library(lavaan)
 library(foreign)
@@ -10,7 +23,6 @@ library(qgraph)
 library(bootnet)
 library(networktools)
 library(NetworkComparisonTest)
-library(bootnet)
 
 #Loading the data
 ##The sintax must be on the same folder as the data
