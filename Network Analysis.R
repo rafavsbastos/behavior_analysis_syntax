@@ -26,9 +26,16 @@ library(NetworkComparisonTest)
 
 #Loading the data
 ##The sintax must be on the same folder as the data
-###I'm loading a SPSS data, you can change to .csc with read.csv(etc etc)
+###I'm loading a SPSS data, you can change to .spss with read.csv(etc etc)
 ####I must say, I recommend you delete the rows with missing data
 mydata <- read.spss(file = "DemoData.sav", to.data.frame = TRUE, use.value.labels = FALSE)
+
+#If you are not able to open the data, use the following
+
+f <- file.choose()
+mydata <- read.spss(file = f, to.data.frame = TRUE, use.value.labels = FALSE)
+
+########################################
 
 #Now, lets calculate the factor scores
 
@@ -84,7 +91,7 @@ plotMagnitudes <- cor.plot(networkMagnitudes, numbers = TRUE)
 centrality <- centrality_auto(networkGraph)
 
 nodeCentrality <- centrality$node.centrality
-edge <- centralityGeral$edge.betweenness.centrality
+edge <- centrality$edge.betweenness.centrality
 centralityPlot(networkGraph, labels = colnames(GeneralNetwork))
 
 centralityPlot(networkGraph, include = c("Strength","Closeness","Betweenness"), orderBy = "Strength")
@@ -95,11 +102,11 @@ Nledges <- getWmat(mynetwork)
 print(Nledges)
 
 #Estimating Network Stability
-b1 <- bootnet(mynetwork, boots = 1000, nCores = 4, statistics = c("strength","expectedInfluence","edge"))
+b1 <- bootnet(networkGraph, boots = 1000, nCores = 4, statistics = c("strength","expectedInfluence","edge"))
 plot(b1, labels = FALSE, order = "sample")
 
 
-b2 <- bootnet(mynetwork, boots = 1000, nCores = 4, type = "case", statistics = c("strength","expectedInfluence","edge"))
+b2 <- bootnet(networkGraph, boots = 1000, nCores = 4, type = "case", statistics = c("strength","expectedInfluence","edge"))
 plot(b2, labels = FALSE, order = "sample")
 
 #Get centrality stability coefficient
