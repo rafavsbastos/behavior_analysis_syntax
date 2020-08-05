@@ -56,7 +56,7 @@ NetworkScores <- predict(fitFactorScores)
 NetworkDataset <- cbind(DemoData,NetworkScores)
 write.csv(NetworkDataset,"NetworkDataset.csv")
 
-#Select the variables you wish to remove from your dataset
+#Select the variables you wish to remove from your new dataset, such as the items from the scales, etc etc
 ##Substitute the number with the number of the column of your variables
 NewNetworkDataset <- NetworkDataset[,-c(8,11)]
 
