@@ -2,11 +2,13 @@
 install.packages("lavaan")
 install.packages("semPlot")
 install.packages("MBESS")
+install.packages("semTools")
 
 #Selecting the packages
 library(lavaan)
 library(semPlot)
 library(MBESS)
+library(semTools)
 #for information on the package use help(package = "lavaan")
 
 # The data I'm using is called "DemoData", feel free to use another name for your data.
@@ -59,7 +61,9 @@ options(max.print=10000)
 #Modification indices goes as follows
 modindices(cfa.fit, sort. = TRUE)
 
-###Calculating reliability with Alpha and Omega
+###Calculating reliability with Alpha and Omega and Average Mean Extratcted (AVE)
+reliability(cfa.fit)
+
   #Select the items you want to use to calculate the reliability by putting each name in paranthesis
   #It shows the upper and lower limits
 
