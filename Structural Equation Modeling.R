@@ -1,10 +1,12 @@
 #First step: install the packages
 install.packages("lavaan")
 install.packages("semPlot")
+install.packages("semTools")
 
 #Selecting the packages
 library(lavaan)
 library(semPlot)
+library(semTools)
 
 #for information on the package use help(package = "lavaan")
 
@@ -41,3 +43,6 @@ semPaths(object = sem.fit,
          what = "std",
          edge.color = "black",
          structural = TRUE)
+
+###Calculating reliability with Alpha and Omega and Average Mean Extratcted (AVE)
+reliability(sem.fit)
