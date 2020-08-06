@@ -13,6 +13,10 @@ library(haven)
 text <- read.csv("Insert path")
 View(text)
 
+#If you're having problems with special characters, use the syntax bellow
+Encoding(text$Column.Vector.name)  <- "UTF-8"
+
+
 # Load the data as a corpus
 docs <- Corpus(VectorSource(text))
 
