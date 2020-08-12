@@ -102,11 +102,12 @@ Nledges <- getWmat(mynetwork)
 print(Nledges)
 
 #Estimating Network Stability
-b1 <- bootnet(networkGraph, boots = 1000, nCores = 4, statistics = c("strength","expectedInfluence","edge"))
+#Network <- estimateNetwork(NewNetworkDataset, default = "EBICglasso")
+b1 <- bootnet(networkGraph, boots = 2500, nCores = 4, statistics = c("strength","expectedInfluence","edge"))
 plot(b1, labels = FALSE, order = "sample")
 
 
-b2 <- bootnet(networkGraph, boots = 1000, nCores = 4, type = "case", statistics = c("strength","expectedInfluence","edge"))
+b2 <- bootnet(networkGraph, boots = 2500, nCores = 4, type = "case", statistics = c("strength","expectedInfluence","edge"))
 plot(b2, labels = FALSE, order = "sample")
 
 #Get centrality stability coefficient
