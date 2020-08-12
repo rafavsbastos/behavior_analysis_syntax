@@ -63,9 +63,6 @@ print(fit, sort = TRUE)
 fa.diagram(fit)
 summary(fit, fit.measures=TRUE, standardized=TRUE)
 
-#Modification indices function goes as follows
-modificationIndices(fit, standardized = TRUE, cov.std = TRUE)
-
 --------
 ###Calculating reliability with Alpha and Omega
   #Select the items you want to use to calculate the reliability by putting each name in paranthesis
