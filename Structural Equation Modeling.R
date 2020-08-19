@@ -44,5 +44,50 @@ semPaths(object = sem.fit,
          edge.color = "black",
          structural = TRUE)
 
+#Or another graphical representation with more information
+semPaths(object = sem.fit,
+         layout = "tree2",
+         rotation = 2,
+         whatLabels = "std",
+         edge.label.cex = 0.5,
+         what = "std",
+         edge.color = "black",
+         structural = F)
+
+semPaths(sem.fit, 
+         "std",
+         whatLabels = "std.all",
+         #theme = "colorblind",
+         nCharNodes = 0,
+         #reorder = FALSE,
+         title = TRUE, 
+         edge.label.cex = 0.95,
+         node.label.cex = 1,
+         equalizeManifests = FALSE,
+         optimizeLatRes = TRUE, 
+         shapeMan = "rectangle",
+         edge.color = "gray48",
+         node.color = "darkgreen",
+         colorlat = "darkgreen",
+         node.width = 1.3,
+         exoCov = TRUE, #Correlation between variables
+         thresholds = FALSE,
+         curvePivot = TRUE, 
+         layout = "tree2", 
+         cardinal = "lat cov", 
+         width = 8, 
+         rotation = 2, 
+         intercepts = FALSE,  
+         residScale = 10,
+         sizeMan = 4,
+         residuals = TRUE,
+         sizeLat = 10,  
+         height = 5,   
+         mar = c(2,8,2,8.5),
+         esize=TRUE,
+         style = "lisrel", 
+         what = "paths")
+
+
 ###Calculating reliability with Alpha and Omega and Average Mean Extratcted (AVE)
 reliability(sem.fit)
