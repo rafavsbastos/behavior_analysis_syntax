@@ -45,15 +45,6 @@ semPaths(object = sem.fit,
          structural = TRUE)
 
 #Or another graphical representation with more information
-semPaths(object = sem.fit,
-         layout = "tree2",
-         rotation = 2,
-         whatLabels = "std",
-         edge.label.cex = 0.5,
-         what = "std",
-         edge.color = "black",
-         structural = F)
-
 semPaths(sem.fit, 
          "std",
          whatLabels = "std.all",
