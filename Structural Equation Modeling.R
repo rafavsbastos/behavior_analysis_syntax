@@ -17,7 +17,7 @@ library(semTools)
 
 DemoData <- read_sav("Insert_path")
 View(DemoData)
---------------------------------------------------------
+#--------------------------------------------------------
 # You have to say the SEM model you are using.
   
   model1 <- '
