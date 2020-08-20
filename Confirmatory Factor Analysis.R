@@ -18,7 +18,7 @@ library(semTools)
 
 DemoData <- read_sav("Insert_path")
 View(DemoData)
---------------------------------------------------------
+#--------------------------------------------------------
 
 # You have to say the model you are using.
 # My model: two factors explained by a high order factor
