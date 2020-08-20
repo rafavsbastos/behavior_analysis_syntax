@@ -24,7 +24,7 @@ library(OpenMx)
 
 DemoData <- read_sav("Insert_path")
 View(DemoData)
---------------------------------------------------------
+#--------------------------------------------------------
 
 # Samejima Item Response Theory
 # I'm using the model with one factor (that's why the integer 1)
