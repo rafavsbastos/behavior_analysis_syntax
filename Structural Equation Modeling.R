@@ -32,7 +32,7 @@ View(DemoData)
 
 #Fit for a Structural Equation MOdel we use the function sem from lavaan
   #for more arguments, use help(package = "lavaan") and search for "sem"
-sem.fit <- sem(model1, data=DemoData)
+sem.fit <- sem(model1, data=DemoData, estimator = "DWLS")
 summary(sem.fit, rsquare = TRUE, standardized=TRUE, fit.measures = TRUE)
 
 semPaths(object = sem.fit,
