@@ -2,13 +2,11 @@
 install.packages("psych")
 install.packages("MBESS")
 install.packages("paran")
-install.packages("lavaan")
 
 #Selecting the packages
 library(psych)
 library(MBESS)
 library(lavaan)
-library(paran)
 library(haven)
 
 # The data I'm using is called "DemoData", feel free to use another name for your data.
@@ -62,6 +60,9 @@ print(fit, sort = TRUE)
 
 fa.diagram(fit)
 summary(fit, fit.measures=TRUE, standardized=TRUE)
+
+plot(fit)
+biplot(fit)
 
 #--------
 ###Calculating reliability with Alpha and Omega
