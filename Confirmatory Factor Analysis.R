@@ -44,6 +44,11 @@ semPaths(object = cfa.fit,
          what = "std",
          edge.color = "navy")
 
+semPaths(cfa.fit, rotation=2,whatLabels = "std",sizeMan=3,
+         style="lisrel",curvePivot=TRUE, edge.color="black", )
+title("Confirmatory Factor Analysis")
+
+
 #Maybe you got a high variance in one or more variables
  #If that happens, check the variance of the real data
   #If the variance of real data is close to the model variance, you're ok
