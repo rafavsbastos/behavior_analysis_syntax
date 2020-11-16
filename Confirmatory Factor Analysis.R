@@ -33,6 +33,12 @@ model1 <- 'f1 =~ item1 + item2 + item3
   #If you have categorical data, use "estimator = wlsmv"
   #for more arguments, use help(package = "lavaan") and search for "cfa"
 cfa.fit <- cfa(model = model1, data = DemoData, estimator = 'mlr')
+
+#If covariance matrix of latent variables is not positive definite, uncomment the following 2 lines:
+#lavInspect(cfa.fit, "cov.lv")
+#eigen(inspect(cfa.fit, "cor.lv"))$values
+
+
 summary(cfa.fit, fit.measures=TRUE, standardized=TRUE, rsquare = TRUE)
 
 # Here's a visual representation of what we're doing
