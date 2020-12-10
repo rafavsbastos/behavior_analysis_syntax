@@ -1,22 +1,8 @@
-#First step: install the packages
-
+#First step: install the package
 install.packages("mirt")
-install.packages("ltm")
-install.packages("reshape2")
-install.packages("sem")
-install.packages("OpenMx")
-instal.packages("psych")
-instal.packages("lavaan")
 
 #Selecting the packages
 library(mirt)
-library(lavaan)
-library(semTools)
-library(ltm)
-library(psych)
-library(reshape2)
-library(sem)
-library(OpenMx)
 
 # The data I'm using is called "DemoData", feel free to use another name for your data.
 # Just remember to change the name of the data on the syntax
