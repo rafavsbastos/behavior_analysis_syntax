@@ -10,6 +10,7 @@ install.packages("qgraph")
 install.packages("bootnet")
 install.packages("networktools")
 install.packages("NetworkComparisonTest")
+instrall.packages("networktree")
 
 library(psych)
 library(lavaan)
@@ -23,6 +24,7 @@ library(qgraph)
 library(bootnet)
 library(networktools)
 library(NetworkComparisonTest)
+library(networktree)
 
 #Loading the data
 ##The sintax must be on the same folder as the data
@@ -139,7 +141,7 @@ NetworkVars <- NetworkDataset[,c("Factor1","Factor2","Factor3")]
 Network_Names <- c("Factor1","Factor2","Factor3")
 
 cor_status <- networktree(nodevars = NetworkVars,
-                  splitvars = NetworkDataset[,"group_variable", drop=FALSE])
+                  splitvars = NetworkDataset[,"group_variable", drop=FALSE], transform = "glasso")
 plot(cor_status)
 print(cor_status)
 
