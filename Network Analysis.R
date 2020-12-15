@@ -28,14 +28,9 @@ library(NetworkComparisonTest)
 ##The sintax must be on the same folder as the data
 ###I'm loading a SPSS data, you can change to .spss with read.csv(etc etc)
 ####I must say, I recommend you delete the rows with missing data
-mydata <- read.spss(file = "DemoData.sav", to.data.frame = TRUE, use.value.labels = FALSE)
+mydata <- read.spss(file = file.choose(), to.data.frame = TRUE, use.value.labels = FALSE)
 
-#If you are not able to open the data, use the following
-
-f <- file.choose()
-mydata <- read.spss(file = f, to.data.frame = TRUE, use.value.labels = FALSE)
-
-########################################
+#---
 
 #Now, lets calculate the factor scores
 
@@ -117,7 +112,7 @@ corStability(b2)
 differenceTest(b1, 3, 4, "strength")
 
 plot(b1, "edge", plot = "difference", onlyNonZero = TRUE, order = "sample")
-###################
+#---
 
 #If you wish to test differences between two graphs, you have to first load the data
 ##You must make the same steps as in line 18-37 twice, one for each dataset
@@ -135,5 +130,24 @@ mynetwork2 <- estimateNetwork(DemoData2, default = "EBICglasso")
 MyNCT <- NCT(mynetwork1, mynetwork2, it = 1000, weighted = TRUE, test.edges = FALSE, edges = 'ALL')
 summary(MyNCT)
 
+#---
+#Lets do a network tree
+## Remember, we have to do steps 35-52
+### We need to have a grouping variable to use this analysis
+NetworkVars <- NetworkDataset[,c("Factor1","Factor2","Factor3")]
+
+Network_Names <- c("Factor1","Factor2","Factor3")
+
+cor_status <- networktree(nodevars = NetworkVars,
+                  splitvars = NetworkDataset[,"group_variable", drop=FALSE])
+plot(cor_status)
+print(cor_status)
+
+getnetwork(cor_status)
+
+compare <- comparetree(cor_status, id1 = 2, id2 = 3, highlights = 3)
+compare$highlights
+
+#https://paytonjjones.github.io/networktree/articles/networktree.html
 
 
