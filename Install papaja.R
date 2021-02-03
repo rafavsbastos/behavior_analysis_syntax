@@ -1,3 +1,10 @@
+#papaja is short for ‘preparing APA journal articles’ and is the name of this R 
+#package designed to create fully reproducible journal articles that seamlessly
+#fuse statistical analyses, simulations, and prose. A manuscript written with papaja 
+#can be thought of as an extensively commented analysis script ready for publication 
+#in a scientific journal.
+
+
 #If you want to create PDF- in addition to DOCX-documents you additionally need
 # TeX 2013 or later. If you have no use for TeX beyond rendering R Markdown 
 #documents, I recommend you use TinyTex. Otherwise consider MikTeX for Windows, 
