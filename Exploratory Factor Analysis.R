@@ -48,6 +48,7 @@ fa.parallel(poly_cor, n.obs = NULL,fm="ml", fa="fa",
 
 
 #You can use paran packege too, it shows the value of simulated eigenvalues
+# Put the number of participants(n) and number of iterations in the first line
 paran(mat = poly_cor, n=120, iterations=500, centile=0, quietly=FALSE, 
       status=TRUE, all=TRUE, cfa=TRUE, graph=TRUE, 
       color=TRUE, col=c("black","red","blue"), 
