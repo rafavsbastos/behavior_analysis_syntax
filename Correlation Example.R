@@ -2,11 +2,13 @@
 install.packages("apaTables")
 install.packages("corrplot")
 install.packages("PerformanceAnalytics")
+install.packages("psych")
 
 #Selecting the packages
 library(PerformanceAnalytics)
 library(corrplot)
 library(apaTables)
+library(psych)
 library(haven)
 
 # The data I'm using is called "DemoData", feel free to use another name for your data.
@@ -33,6 +35,11 @@ chart.Correlation(variables, histogram=TRUE, pch=19)
   #but you can substitute for spearman of kendall
   #See help(cor)
 cor_data = cor(variables, method = c("pearson"))
+
+#If you are dealing with ordinal data, use psychoric correlation and uncomment the next lines
+
+# cor_data <- polychoric(x = variables,smooth=TRUE,global=TRUE,polycor=FALSE, ML = FALSE,
+#           std.err=FALSE,weight=NULL,progress=TRUE,na.rm=TRUE, delete=TRUE)
 
 #Here's a correlogram
 corrplot(cor_data)
