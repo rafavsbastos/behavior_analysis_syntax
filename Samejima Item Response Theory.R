@@ -55,18 +55,21 @@ table <- matrix(NA, nrow = 4, ncol = 10)
 
 #Write the label of the items bellow; just follow the pattern
 table[,1] <- c("Item 1", "Item 2", "Item 3", "Item 4")
-
-table[,2] <- r_factor_table[,1]
-table[,3] <- r_factor_table[,2]
-table[,4] <- inf_table[,1]
-table[,5] <- inf_table[,2]
-table[,6] <- inf_table[,3]
-table[,7] <- inf_table[,4]
-table[,8] <- inf_table[,5]
-table[,9] <- inf_table[,6]
-table[,10] <- inf_table[,7]
+table[,2] <- r_factor_table[2,1]
+table[,3] <- r_factor_table[2,2]
+table[,4] <- inf_table[2,1]
+table[,5] <- inf_table[2,2]
+table[,6] <- inf_table[2,3]
+table[,7] <- inf_table[2,4]
+table[,8] <- inf_table[2,5]
+table[,9] <- inf_table[2,6]
+table[,10] <- inf_table[2,7]
 table
 
+#If your instrument has 7 anchors (e.g. Likert scale from 1 - 7), you do not have to change the following sintax
+## However, if it's differente, set the number of b's (b1, b2 ...) to the number of anchors -1.
+final_table <- rbind(c("Items","Factor_Loadings", "h2", "a", "b1", "b2", "b3","b4","b5","b6"), table)
+final_table
 #The file will be saved where this code is saved
-write.csv2(table, file = "IRT.csv", sep = ",", quote = FALSE, 
-            row.names = FALSE)
+write.csv2(final_table, file = "IRT.csv", sep = ",", quote = FALSE, 
+           row.names = FALSE, col.names = FALSE)
