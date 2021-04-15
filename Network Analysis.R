@@ -63,7 +63,7 @@ groups <- list("F1"=c(1), "F2"=c(2), "F3"=c(3))
 
 #Now we are going to make the plot
 ##Substitute the sampleSize argument with your sample size
-networkGraph <- qgraph(abs(networkMatrix), directed = FALSE, layout = "spring", 
+networkGraph <- qgraph(networkMatrix, directed = FALSE, layout = "spring", 
                              graph = "glasso", sampleSize = 100, groups = groups)
 
 networkGraph
