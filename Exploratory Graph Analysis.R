@@ -1,6 +1,7 @@
 #####
 #Exploratory Graph Analysis (EGA)
-install.packages("EGAnet")
+library(devtools)
+devtools::install_github('hfgolino/EGAnet', force = TRUE)
 library(EGAnet)
 
 #Selecting variables for first EGA
